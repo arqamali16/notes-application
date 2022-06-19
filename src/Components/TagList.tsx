@@ -9,7 +9,7 @@ import React from 'react';
  * @funtion
  * Component with all tag items
  */
-const TagList = ({ tags }: any) => (
+const TagList = ({ tags }: { tags: string[] }) => (
 	<div className='app-sidebar-notes'>
 		{tags.map((each: string) => (
 			<div className='app-sidebar-note'>
