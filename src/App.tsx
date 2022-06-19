@@ -1,5 +1,5 @@
+// @ts-nocheck
 import { useEffect, useState } from 'react';
-//@ts-ignore
 import uuid from 'react-uuid';
 import './App.css';
 import Main from './Components/Main';
