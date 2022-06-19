@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useEffect, useState, createRef } from 'react';
+import React, { useState, createRef } from 'react';
 import ReactMarkdown from 'react-markdown';
 import keyword_extractor from 'keyword-extractor';
 import { CloseCircleFilled } from '@ant-design/icons';
