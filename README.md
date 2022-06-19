@@ -22,4 +22,4 @@ To get the frontend running locally:
 - Tags can be added, if not tags will be created by its own by picking up important keywords.
 - Added tags can be deleted for a particular note.
 - List of tags used can be viewed.
-- Search filter, which filters the notes on characters (Except thee flow after filtering i.e Add/Edit).
+- Search filter, which filters the notes on characters (Except thee flow after filtering i.e Edit).
