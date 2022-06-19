@@ -21,8 +21,6 @@ const App = () => {
 	const [notes, setNotes] = useState(localStorage.notes ? JSON.parse(localStorage.notes) : []);
 	const [activeNote, setActiveNote] = useState(false);
 
-	console.log('avcjv', activeNote);
-
 	/**
 	 * Use Effect
 	 * @funtion
