@@ -1,24 +1,24 @@
-// @ts-nocheck
 import React, { useState } from 'react';
 import { PlusOutlined, TagOutlined } from '@ant-design/icons';
-import { forEachChild } from 'typescript';
 
 import TagList from './TagList';
 import Notes from './Notes';
 
-const Sidebar = ({ notes, onAddNote, onDeleteNote, activeNote, setActiveNote }) => {
+import { ISidebarProps } from '../types';
+
+const Sidebar = ({ notes, onAddNote, onDeleteNote, activeNote, setActiveNote }: ISidebarProps) => {
 	const [showTags, setShowTags] = useState(false);
 	const [tags, setTags] = useState([]);
-	const sortedNotes = notes.sort((a, b) => b.lastModified - a.lastModified);
-	// [... new Set(a)]
-	// const allUniqueTags =
+
+	const sortedNotes = notes.sort((a: any, b: any) => b.lastModified - a.lastModified);
 
 	const setUniqueTags = () => {
-		let allTags = [];
+		let allTags: any = [];
 		notes.forEach((each) => {
 			allTags = [...allTags, ...each.tags];
 		});
 
+		// @ts-ignore
 		setTags([...new Set(allTags)]);
 	};
 

@@ -1,6 +1,7 @@
 import React from 'react';
+import { INoteProps } from '../types';
 
-const Notes = ({ sortedNotes, onDeleteNote, activeNote, setActiveNote }: any) => (
+const Notes = ({ sortedNotes, onDeleteNote, activeNote, setActiveNote }: INoteProps) => (
 	<>
 		<div className='app-sidebar-header search-input'>
 			<input placeholder='Search...'></input>
