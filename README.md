@@ -21,5 +21,4 @@ To get the frontend running locally:
 - The latest updated note will on top of the list.
 - Tags can be added, if not tags will be created by its own by picking up important keywords.
 - Added tags can be deleted for a particular note.
-- List of tags used can be viewed
-- Search will allow you to filter the note based in search content.
+- List of tags used can be viewed.
