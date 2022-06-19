@@ -1,3 +1,7 @@
+/**
+ * @author Mohammed Arqam Ali Saad <arqam.ali16@gmail.com>
+ * Main component
+ */
 import React, { useState, createRef } from 'react';
 import ReactMarkdown from 'react-markdown';
 import keyword_extractor from 'keyword-extractor';

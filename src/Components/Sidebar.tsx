@@ -1,3 +1,7 @@
+/**
+ * @author Mohammed Arqam Ali Saad <arqam.ali16@gmail.com>
+ * Sidebar component
+ */
 import React, { useState } from 'react';
 import { PlusOutlined, TagOutlined } from '@ant-design/icons';
 

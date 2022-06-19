@@ -1,3 +1,7 @@
+/**
+ * @author Mohammed Arqam Ali Saad <arqam.ali16@gmail.com>
+ * Notes component
+ */
 import React from 'react';
 import { INote, INoteProps } from '../types';
 
