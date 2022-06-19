@@ -27,7 +27,7 @@ const Main = ({ activeNote, onUpdateNote }: IMainProps) => {
 		});
 	};
 
-	const onSave = () => {
+	const saveAutoCreatedTags = () => {
 		if (activeNote.tags.length === 0) {
 			const tags = keyword_extractor.extract(activeNote.body, {
 				language: 'english',
@@ -66,6 +66,11 @@ const Main = ({ activeNote, onUpdateNote }: IMainProps) => {
 		});
 	};
 
+	const onSave = () => {
+		setIsEditing(false);
+		saveAutoCreatedTags();
+	};
+
 	if (!activeNote) return <div className='no-active-note'>No Active Note</div>;
 
 	return (
@@ -81,13 +86,7 @@ const Main = ({ activeNote, onUpdateNote }: IMainProps) => {
 							onChange={(e) => onEditField('title', e.target.value)}
 							autoFocus
 						/>
-						<button
-							className='button-background'
-							onClick={() => {
-								setIsEditing(false);
-								onSave();
-							}}
-						>
+						<button className='button-background' onClick={onSave}>
 							Save
 						</button>
 					</div>
@@ -102,7 +101,12 @@ const Main = ({ activeNote, onUpdateNote }: IMainProps) => {
 				<div className='app-main-note-preview'>
 					<div className='header'>
 						<h1 className='preview-title'>{activeNote.title}</h1>
-						<button className='button-background' onClick={() => setIsEditing(true)}>
+						<button
+							className='button-background'
+							onClick={() => {
+								setIsEditing(true);
+							}}
+						>
 							Edit
 						</button>
 					</div>

@@ -7,9 +7,6 @@ import { INote, INoteProps } from '../types';
 
 const Notes = ({ sortedNotes, onDeleteNote, activeNote, setActiveNote }: INoteProps) => (
 	<>
-		<div className='app-sidebar-header search-input'>
-			<input placeholder='Search...'></input>
-		</div>
 		<div className='app-sidebar-notes'>
 			{sortedNotes.map(({ id, title, body, lastModified }: INote) => (
 				<div className={`app-sidebar-note ${id === activeNote && 'active'}`} onClick={() => setActiveNote(id)}>

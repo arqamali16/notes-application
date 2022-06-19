@@ -19,6 +19,7 @@ import { INote } from './types';
  */
 const App = () => {
 	const [notes, setNotes] = useState(localStorage.notes ? JSON.parse(localStorage.notes) : []);
+	const [isFilter, setIsFilter] = useState(false);
 	const [activeNote, setActiveNote]: [boolean | string, React.Dispatch<React.SetStateAction<boolean | string>>] =
 		useState(false as any);
 
@@ -28,7 +29,7 @@ const App = () => {
 	 * Setting note in local storage on notes changes
 	 */
 	useEffect(() => {
-		localStorage.setItem('notes', JSON.stringify(notes));
+		if (!isFilter) localStorage.setItem('notes', JSON.stringify(notes));
 	}, [notes]);
 
 	/**
@@ -92,6 +93,8 @@ const App = () => {
 				onDeleteNote={onDeleteNote}
 				activeNote={activeNote}
 				setActiveNote={setActiveNote}
+				setNotes={setNotes}
+				setIsFilter={setIsFilter}
 			/>
 			<Main activeNote={getActiveNote()} onUpdateNote={onUpdateNote} />
 		</div>

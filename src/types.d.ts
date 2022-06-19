@@ -12,6 +12,8 @@ export interface ISidebarProps {
 	onDeleteNote: (id: string) => void;
 	activeNote: string | boolean;
 	setActiveNote: React.Dispatch<React.SetStateAction<boolean | string>>;
+	setNotes: React.Dispatch<React.SetStateAction<INote[]>>;
+	setIsFilter: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface INoteProps {
