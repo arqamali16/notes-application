@@ -1,5 +1,10 @@
 import React from 'react';
 
+/**
+ * Functional Component - TagList
+ * @funtion
+ * Component with all tag items
+ */
 const TagList = ({ tags }: any) => (
 	<div className='app-sidebar-notes'>
 		{tags.map((each: string) => (

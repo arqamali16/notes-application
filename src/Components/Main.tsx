@@ -1,15 +1,17 @@
-// @ts-nocheck
 import React, { useState, createRef } from 'react';
 import ReactMarkdown from 'react-markdown';
 import keyword_extractor from 'keyword-extractor';
 import { CloseCircleFilled } from '@ant-design/icons';
 
-const Main = ({ activeNote, onUpdateNote }) => {
-	const inputRef = createRef();
+import { IMainProps } from '../types';
+
+const Main = ({ activeNote, onUpdateNote }: IMainProps) => {
 	const [isEditing, setIsEditing] = useState(false);
 
-	const onEditField = (field, value) => {
-		let tags = [];
+	const inputRef: React.RefObject<unknown> = createRef();
+
+	const onEditField = (field: string, value: string) => {
+		let tags: string[] = [];
 		if (activeNote.tags.length === 0) {
 		}
 
@@ -38,18 +40,20 @@ const Main = ({ activeNote, onUpdateNote }) => {
 		}
 	};
 
-	const addTag = (event) => {
+	const addTag = (event: { key: string; target: { value: any } }) => {
 		if (event.key === 'Enter') {
 			onUpdateNote({
 				...activeNote,
 				tags: [...activeNote.tags, event.target.value],
 				lastModified: Date.now(),
 			});
+
+			// @ts-ignore
 			inputRef.current.value = '';
 		}
 	};
 
-	const removeTag = (value) => {
+	const removeTag = (value: string) => {
 		const filteredTags = activeNote.tags.filter((each) => each !== value);
 		onUpdateNote({
 			...activeNote,
@@ -101,7 +105,6 @@ const Main = ({ activeNote, onUpdateNote }) => {
 					<ReactMarkdown className='markdown-preview'>{activeNote.body}</ReactMarkdown>
 				</div>
 			)}
-
 			<ul className='tags'>
 				{activeNote.tags.map((each) => (
 					<li>
@@ -112,6 +115,7 @@ const Main = ({ activeNote, onUpdateNote }) => {
 					</li>
 				))}
 				<li>
+					{/** @ts-ignore */}
 					<input ref={inputRef} placeholder='Add tag...' className='tags-input' onKeyDown={addTag}></input>
 				</li>
 			</ul>

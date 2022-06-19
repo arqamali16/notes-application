@@ -19,7 +19,8 @@ import { INote } from './types';
  */
 const App = () => {
 	const [notes, setNotes] = useState(localStorage.notes ? JSON.parse(localStorage.notes) : []);
-	const [activeNote, setActiveNote] = useState(false);
+	const [activeNote, setActiveNote]: [boolean | string, React.Dispatch<React.SetStateAction<boolean | string>>] =
+		useState(false as any);
 
 	/**
 	 * Use Effect
@@ -62,7 +63,7 @@ const App = () => {
 	 * @funtion
 	 * @param {Object} updatedNote - Note details with all changes and note id.
 	 */
-	const onUpdateNote = (updatedNote: INote) => {
+	const onUpdateNote = (updatedNote: INote): void => {
 		const updatedNotesArr = notes.map((note: any) => {
 			if (note.id === updatedNote.id) {
 				return updatedNote;

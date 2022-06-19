@@ -1,5 +1,5 @@
 import React from 'react';
-import { INoteProps } from '../types';
+import { INote, INoteProps } from '../types';
 
 const Notes = ({ sortedNotes, onDeleteNote, activeNote, setActiveNote }: INoteProps) => (
 	<>
@@ -7,7 +7,7 @@ const Notes = ({ sortedNotes, onDeleteNote, activeNote, setActiveNote }: INotePr
 			<input placeholder='Search...'></input>
 		</div>
 		<div className='app-sidebar-notes'>
-			{sortedNotes.map(({ id, title, body, lastModified }: any) => (
+			{sortedNotes.map(({ id, title, body, lastModified }: INote) => (
 				<div className={`app-sidebar-note ${id === activeNote && 'active'}`} onClick={() => setActiveNote(id)}>
 					<div className='sidebar-note-title'>
 						<strong>{title}</strong>
